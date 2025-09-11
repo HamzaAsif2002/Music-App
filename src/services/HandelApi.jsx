@@ -6,16 +6,16 @@ const api = axios.create({
 
 export const GetApiData = async (query) => {
   try {
-    const res = await axios.get("/search", {
+    const res = await api.get("/search", {
       params: {
         part: "snippet",
         q: query,
         type: "video",
-        maxResults: 8,
+        maxResults: 18,
         key: import.meta.env.VITE_YOUTUBE_API_KEY, // replace with your key
       },
     });
-    return res.data;
+    return res.data.items;
   } catch (error) {
     console.error("API Error:", error);
     return { items: [] }; // fallback
