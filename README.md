@@ -17,7 +17,7 @@ You can search for any song, listen to full music with video, and enjoy a smooth
 
 ## 🖼️ Screenshot
 
-![Music WebApp Screenshot](./screenshot.png)
+![Music WebApp Screenshot](/public/screenshot.png)
 
 ---
 
