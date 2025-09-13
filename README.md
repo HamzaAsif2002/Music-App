@@ -1,12 +1,30 @@
-# React + Vite
+# 🎵 Music WebApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive **Music Web Application** built with **React**, powered by the **YouTube API**.  
+You can search for any song, listen to full music with video, and enjoy a smooth streaming experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔎 **Search any song** using YouTube API
+- 🎶 **Play full music with video** directly in the app
+- ⚡ **Data fetching with Axios**
+- 🔄 **Caching & state management with React Query**
+- 📱 **Responsive UI** (mobile & desktop friendly)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🖼️ Screenshot
+
+![Music WebApp Screenshot](./screenshot.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (Frontend UI)
+- **YouTube API** (Music & video streaming)
+- **Axios** (API handling)
+- **React Query** (Data fetching, caching, and state management)
+- **Tailwind CSS** (Styling)

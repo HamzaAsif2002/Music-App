@@ -35,12 +35,6 @@ function LandingPage() {
     setCurrentSong(item.snippet);
   };
 
-  const opts = {
-    height: "400",
-    width: "700",
-    playerVars: { autoplay: 1 },
-  };
-
   const onReady = (event) => {
     playerRef.current = event.target;
   };
@@ -50,7 +44,10 @@ function LandingPage() {
       <h1 className="text-4xl font-bold mb-6">🎵 My Music WebApp</h1>
 
       {/* Search Bar */}
-      <form onSubmit={onSearch} className="w-full max-w-2xl mb-8 flex">
+      <form
+        onSubmit={onSearch}
+        className="w-full max-w-2xl mb-8 flex justify-center"
+      >
         <input
           type="text"
           placeholder="Search music..."
@@ -71,20 +68,34 @@ function LandingPage() {
       <div className="flex justify-center gap-5  flex-col items-center lg:items-start lg:flex-row">
         {/* Now Playing */}
         {currentSong && videoId && (
-          <div className="flex flex-col items-center bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg w-full max-w-2xl mb-6 max-h-[500px]">
-            {/* YouTube Player */}
-            <YouTube videoId={videoId} opts={opts} onReady={onReady} />
+          <div className="flex flex-col items-center bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg w-full max-w-3xl mb-6">
+            {/* Responsive YouTube Player */}
+            <div className="relative w-full pb-[56.25%]">
+              <YouTube
+                videoId={videoId}
+                opts={{
+                  playerVars: { autoplay: 1 }, // ✅ no fixed height/width
+                }}
+                onReady={onReady}
+                iframeClassName="absolute top-0 left-0 w-full h-full rounded-lg"
+              />
+            </div>
 
             <h2 className="text-xl font-bold mb-4 mt-3">{currentSong.title}</h2>
           </div>
         )}
 
         {/* Results Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-6 w-full max-w-5xl mb-8">
+        <div
+          className={` grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${
+            currentSong ? "lg:grid-cols-2" : "lg:grid-cols-3"
+          } gap-6 w-full max-w-5xl mb-8 `}
+        >
           {results.map((item) => (
             <div
               key={item.id.videoId}
               className="bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg hover:scale-105 transition-transform cursor-pointer"
+              onClick={() => playSong(item)}
             >
               <img
                 src={item.snippet.thumbnails?.medium?.url}
@@ -94,12 +105,9 @@ function LandingPage() {
               <h2 className="text-lg font-semibold mb-2 line-clamp-2">
                 {item.snippet.title}
               </h2>
-              <button
-                onClick={() => playSong(item)}
-                className="bg-green-500 px-4 py-2 rounded-lg mt-2"
-              >
+              {/* <button className="bg-green-500 px-4 py-2 rounded-lg mt-2">
                 ▶ Play
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
